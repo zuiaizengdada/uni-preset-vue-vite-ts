@@ -1,5 +1,5 @@
 import { BASE_URL, TIME_OUT } from './config'
-import { useMemberStore } from '@/store/member'
+import useMemberStore from '@/store/member'
 import { Data } from '@/types/global'
 
 import i18n from '@/locale'
