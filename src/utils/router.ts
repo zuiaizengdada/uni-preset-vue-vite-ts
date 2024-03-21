@@ -1,14 +1,10 @@
-// router.ts
-type RoutePath = string
-type QueryParams = Record<string, unknown>
-
 class Router {
   /**
    * 构建带查询参数的URL
    * @param path 页面路径
    * @param params 查询参数
    */
-  private buildUrl(path: RoutePath, params?: QueryParams): string {
+  private buildUrl(path: string, params?: Record<string, any>): string {
     if (!params) return path
     const query = Object.keys(params)
       .map(
@@ -26,13 +22,12 @@ class Router {
    * @param path 页面路径
    * @param params 页面查询参数
    */
-  navigateTo(path: RoutePath, params?: QueryParams) {
+  navigateTo(path: string, params?: Record<string, any>) {
     try {
       const url = this.buildUrl(path, params)
       uni.navigateTo({ url })
-      console.log(`Navigating to: ${url}`)
     } catch (error) {
-      console.error('Failed to navigate:', error)
+      console.error(error)
     }
   }
 
@@ -41,13 +36,12 @@ class Router {
    * @param path 页面路径
    * @param params 页面查询参数
    */
-  redirectTo(path: RoutePath, params?: QueryParams) {
+  redirectTo(path: string, params?: Record<string, any>) {
     try {
       const url = this.buildUrl(path, params)
       uni.redirectTo({ url })
-      console.log(`Redirecting to: ${url}`)
     } catch (error) {
-      console.error('Failed to redirect:', error)
+      console.error(error)
     }
   }
 
@@ -58,9 +52,8 @@ class Router {
   navigateBack(delta: number = 1) {
     try {
       uni.navigateBack({ delta })
-      console.log(`Navigating back by: ${delta} pages`)
     } catch (error) {
-      console.error('Failed to navigate back:', error)
+      console.error(error)
     }
   }
 
@@ -68,12 +61,11 @@ class Router {
    * 切换到 tabBar 页面
    * @param path tabBar 页面的路径
    */
-  switchTab(path: RoutePath) {
+  switchTab(path: string) {
     try {
       uni.switchTab({ url: path })
-      console.log(`Switching to tab: ${path}`)
     } catch (error) {
-      console.error('Failed to switch tab:', error)
+      console.error(error)
     }
   }
 
@@ -82,13 +74,12 @@ class Router {
    * @param path 页面路径
    * @param params 页面查询参数
    */
-  reLaunch(path: RoutePath, params?: QueryParams) {
+  reLaunch(path: string, params?: Record<string, any>) {
     try {
       const url = this.buildUrl(path, params)
       uni.reLaunch({ url })
-      console.log(`Relaunching to: ${url}`)
     } catch (error) {
-      console.error('Failed to relaunch:', error)
+      console.error(error)
     }
   }
 }

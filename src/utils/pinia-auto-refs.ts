@@ -4,7 +4,7 @@
 // @ts-nocheck
 import type { AutoToRefs, ToRef } from 'vue'
 
-import memberStore from '@/store/member'
+import systemStore from '@/store/system'
 import userStore from '@/store/user'
 
 import store from '@/store'
@@ -16,7 +16,7 @@ declare module 'vue' {
 }
 
 const storeExports = {
-  member: memberStore,
+  system: systemStore,
   user: userStore
 }
 

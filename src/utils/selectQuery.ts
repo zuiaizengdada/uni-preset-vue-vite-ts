@@ -1,3 +1,4 @@
+// 获取元素实例
 export const selectorQueryClientRect = (
   selector: string
 ): Promise<UniApp.NodeInfo | UniApp.NodeInfo[]> =>
